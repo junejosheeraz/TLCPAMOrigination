@@ -15,10 +15,13 @@
   <bpmn2:itemDefinition id="__9DF78139-D1D1-461F-BD6C-7825C0D424A3_NotCompletedReassignInputXItem" isCollection="false" structureRef="Object"/>
   <bpmn2:itemDefinition id="__9DF78139-D1D1-461F-BD6C-7825C0D424A3_NotStartedNotifyInputXItem" isCollection="false" structureRef="Object"/>
   <bpmn2:itemDefinition id="__9DF78139-D1D1-461F-BD6C-7825C0D424A3_NotCompletedNotifyInputXItem" isCollection="false" structureRef="Object"/>
+  <bpmn2:itemDefinition id="ItemDefinition_1" isCollection="false" structureRef="Integer"/>
   <bpmn2:signal id="_9887cb42-8296-3f3b-9e3a-55a2827b228b" name="needMoreDetails"/>
   <bpmn2:process id="SJPAMSpace.SJParentProcess" drools:packageName="com.originationsinternal.sjpamspace" drools:version="1.0" drools:adHoc="false" name="SJParentProcess" isExecutable="true" processType="Public">
     <bpmn2:property id="applicationDetails" itemSubjectRef="_applicationDetailsItem" name="applicationDetails"/>
     <bpmn2:property id="applicationStatus" itemSubjectRef="_applicationStatusItem" name="applicationStatus"/>
+    <bpmn2:property id="age" itemSubjectRef="ItemDefinition_1" name="age"/>
+    <bpmn2:property id="riskRating" itemSubjectRef="_applicationStatusItem" name="riskRating"/>
     <bpmn2:sequenceFlow id="_224D3EE5-B4A2-4173-B6AD-E7A3FA9F086C" sourceRef="_1A43A0E5-FE64-4E99-87AA-059C89E7DD75" targetRef="_9DF78139-D1D1-461F-BD6C-7825C0D424A3">
       <bpmn2:extensionElements>
         <drools:metaData name="isAutoConnection.target">
@@ -128,6 +131,29 @@
       </bpmn2:extensionElements>
       <bpmn2:incoming>_DF2EC2DA-ED2B-4D60-A587-6427FEED141B</bpmn2:incoming>
       <bpmn2:outgoing>_450A4B0B-0D77-4FD7-B3D3-EA4B392BB3A2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_3">
+        <bpmn2:dataOutput id="DataOutput_2" itemSubjectRef="_applicationDetailsItem" name="applicationDetails"/>
+        <bpmn2:dataOutput id="DataOutput_3" itemSubjectRef="_applicationStatusItem" name="age"/>
+        <bpmn2:dataOutput id="DataOutput_4" itemSubjectRef="_applicationStatusItem" name="riskRating"/>
+        <bpmn2:inputSet id="InputSet_3" name="Input Set 3"/>
+        <bpmn2:outputSet id="OutputSet_4" name="Output Set 4">
+          <bpmn2:dataOutputRefs>DataOutput_2</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_3</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_4</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_2">
+        <bpmn2:sourceRef>DataOutput_2</bpmn2:sourceRef>
+        <bpmn2:targetRef>applicationDetails</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_3">
+        <bpmn2:sourceRef>DataOutput_3</bpmn2:sourceRef>
+        <bpmn2:targetRef>age</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_4">
+        <bpmn2:sourceRef>DataOutput_4</bpmn2:sourceRef>
+        <bpmn2:targetRef>riskRating</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
     <bpmn2:endEvent id="_11ED5696-B570-4874-A4F9-7D92227B5C9F" name="End Signal">
       <bpmn2:documentation id="_cnZk6L8aEe2IZ8pjjCZW5Q"><![CDATA[Ending the manual review]]></bpmn2:documentation>
@@ -190,9 +216,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__877A36D5-0C7A-45C0-B913-2C42AB5AA5BF" bpmnElement="_877A36D5-0C7A-45C0-B913-2C42AB5AA5BF">
-        <dc:Bounds height="56.0" width="56.0" x="246.0" y="120.0"/>
+        <dc:Bounds height="56.0" width="56.0" x="168.0" y="119.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="11.0" width="20.0" x="264.0" y="176.0"/>
+          <dc:Bounds height="11.0" width="20.0" x="186.0" y="175.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__553723A7-55BB-4552-8D75-8BE3B7BFAC8C" bpmnElement="_553723A7-55BB-4552-8D75-8BE3B7BFAC8C" isMarkerVisible="true">
@@ -208,9 +234,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__C0814F57-54E6-4414-8510-F1FD8331AEB7" bpmnElement="_C0814F57-54E6-4414-8510-F1FD8331AEB7" isExpanded="true">
-        <dc:Bounds height="101.0" width="153.0" x="368.0" y="97.0"/>
+        <dc:Bounds height="101.0" width="153.0" x="290.0" y="96.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="11.0" width="97.0" x="396.0" y="142.0"/>
+          <dc:Bounds height="11.0" width="97.0" x="318.0" y="141.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__9DF78139-D1D1-461F-BD6C-7825C0D424A3" bpmnElement="_9DF78139-D1D1-461F-BD6C-7825C0D424A3">
@@ -242,13 +268,16 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__877A36D5-0C7A-45C0-B913-2C42AB5AA5BF_to_shape__C0814F57-54E6-4414-8510-F1FD8331AEB7" bpmnElement="_DF2EC2DA-ED2B-4D60-A587-6427FEED141B" sourceElement="shape__877A36D5-0C7A-45C0-B913-2C42AB5AA5BF" targetElement="shape__C0814F57-54E6-4414-8510-F1FD8331AEB7">
-        <di:waypoint xsi:type="dc:Point" x="274.0" y="148.0"/>
-        <di:waypoint xsi:type="dc:Point" x="368.0" y="147.5"/>
+        <di:waypoint xsi:type="dc:Point" x="224.0" y="147.0"/>
+        <di:waypoint xsi:type="dc:Point" x="257.0" y="147.0"/>
+        <di:waypoint xsi:type="dc:Point" x="290.0" y="146.0"/>
         <bpmndi:BPMNLabel/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__C0814F57-54E6-4414-8510-F1FD8331AEB7_to_shape__553723A7-55BB-4552-8D75-8BE3B7BFAC8C" bpmnElement="_450A4B0B-0D77-4FD7-B3D3-EA4B392BB3A2" sourceElement="shape__C0814F57-54E6-4414-8510-F1FD8331AEB7" targetElement="shape__553723A7-55BB-4552-8D75-8BE3B7BFAC8C">
-        <di:waypoint xsi:type="dc:Point" x="444.5" y="147.5"/>
-        <di:waypoint xsi:type="dc:Point" x="639.0" y="148.0"/>
+        <di:waypoint xsi:type="dc:Point" x="443.0" y="146.0"/>
+        <di:waypoint xsi:type="dc:Point" x="527.0" y="146.0"/>
+        <di:waypoint xsi:type="dc:Point" x="527.0" y="148.0"/>
+        <di:waypoint xsi:type="dc:Point" x="611.0" y="148.0"/>
         <bpmndi:BPMNLabel/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__553723A7-55BB-4552-8D75-8BE3B7BFAC8C_to_shape__1A43A0E5-FE64-4E99-87AA-059C89E7DD75" bpmnElement="_1EFAA4E6-4B5F-44B3-906B-D977A287B0B5" sourceElement="shape__553723A7-55BB-4552-8D75-8BE3B7BFAC8C" targetElement="shape__1A43A0E5-FE64-4E99-87AA-059C89E7DD75">
